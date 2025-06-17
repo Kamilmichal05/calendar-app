@@ -5,8 +5,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
 const navigation = [
-  { name: 'About Us', href: '#' },
+  { name: 'About Us', to: '#' },
+  { name: 'Dashboard', to: '/dashboard' },
 ]
+
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -33,9 +35,14 @@ export default function Home() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm/6 font-semibold text-gray-900">
-                {item.name}
-              </a>
+              <Link
+                  key={item.name}
+                  to={item.to}
+                  className="text-sm/6 font-semibold text-gray-900"
+                >
+                  {item.name}
+              </Link>
+
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
