@@ -5,7 +5,6 @@ import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/home'
-import TailwindTest from './TailwindTest'
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -13,5 +12,9 @@ const supabase = createClient(
 )
 
 export default function App() {
-  return <TailwindTest />
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
+  )
 }
