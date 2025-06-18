@@ -1,11 +1,38 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from '@fullcalendar/interaction'
+import Calendar from './calendar'
+
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('overview')
+
+  const events = [
+    {
+      title: 'Meeting with Anna',
+      date: '2025-06-19',
+      time: '10:00 - 11:00'
+    },
+    {
+      title: 'Lunch Break',
+      date: '2025-06-19',
+      time: '13:00 - 14:00'
+    },
+    {
+      title: 'Team Sync',
+      date: '2025-06-20',
+      time: '09:00 - 10:30'
+    },
+    {
+      title: 'Project Review',
+      date: '2025-06-21',
+      time: '15:00 - 16:00'
+    },
+    {
+      title: '1-on-1 with Bob',
+      date: '2025-06-22',
+      time: '11:00 - 11:30'
+    }
+  ]
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
@@ -62,17 +89,8 @@ export default function Dashboard() {
             <p className="text-gray-700">Manage your preferences and settings here.</p>
           </div>
         )}
-        {activeTab === 'calendar' && (
-          <div>
-            <h2 className="text-xl font-semibold mb-4">My Calendar</h2>
-            <FullCalendar
-              plugins={[dayGridPlugin, interactionPlugin]}
-              initialView="dayGridWeek"
-              events={[]}
-              height={400} // Increased height for longer day columns
-            />
-          </div>
-        )}
+        {activeTab === 'calendar' && <Calendar />}
+
       </div>
     </div>
   )
